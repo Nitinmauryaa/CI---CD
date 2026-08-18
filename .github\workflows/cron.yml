@@ -1,0 +1,14 @@
+name: cron-job
+on:
+  push:
+  pull_request:
+  schedule:
+    -cron: '* /5 * * *'
+  workflow_dispatch:
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      -name: show the tigger
+        run: echo "The cron job has been triggered by a(n) ${{ github.event_name }} event."
